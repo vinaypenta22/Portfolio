@@ -44,21 +44,8 @@ export function Footer() {
             >
               <Linkedin className="h-4 w-4" />
             </a>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:border-accent-blue hover:text-accent-blue-dark dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-cyan dark:hover:text-accent-cyan"
-            >
-              <Github className="h-4 w-4" />
-            </a>
           </div>
         </div>
-
-        <p className="mt-10 text-xs text-slate-400 dark:text-slate-600">
-          © {year} {profile.name}. Built with Next.js, Tailwind CSS, and Framer Motion.
-        </p>
       </div>
     </footer>
   );

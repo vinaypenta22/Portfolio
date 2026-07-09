@@ -11,7 +11,6 @@ const contactDetails = [
   { icon: Phone, label: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
   { icon: MapPin, label: profile.location, href: undefined },
   { icon: Linkedin, label: "linkedin.com/in/vinay-penta", href: profile.linkedin },
-  { icon: Github, label: "GitHub (add your handle)", href: profile.github },
 ];
 
 export function Contact() {

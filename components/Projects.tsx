@@ -16,13 +16,6 @@ export function Projects() {
         <p className="section-heading-number text-accent-blue-dark dark:text-accent-cyan">
           04 · PROJECTS
         </p>
-        <h2 className="mt-2 font-display text-3xl font-semibold text-ink dark:text-white sm:text-4xl">
-          Selected work
-        </h2>
-        <p className="mt-3 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
-          Demo and repository links are placeholders — swap in real URLs in{" "}
-          <code className="font-mono text-xs">lib/data.ts</code> when available.
-        </p>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((project, i) => (
@@ -60,20 +53,7 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <div className="mt-6 flex gap-4 border-t border-slate-100 pt-4 dark:border-slate-800">
-                    <a
-                      href={project.links.demo}
-                      className="flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent-blue-dark dark:text-slate-200 dark:hover:text-accent-cyan"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5" /> Live demo
-                    </a>
-                    <a
-                      href={project.links.code}
-                      className="flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent-blue-dark dark:text-slate-200 dark:hover:text-accent-cyan"
-                    >
-                      <Github className="h-3.5 w-3.5" /> Code
-                    </a>
-                  </div>
+                 
                 </CardContent>
               </Card>
             </motion.div>
