@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { projects } from "@/lib/data";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { AnimatedSection, staggerListVariants, staggerItemVariants } from "@/components/ui/animated-section";
 
 export function Projects() {
   return (
@@ -13,18 +14,23 @@ export function Projects() {
       className="border-y border-slate-200 bg-white py-28 dark:border-slate-800 dark:bg-surface-dark-subtle"
     >
       <div className="mx-auto max-w-6xl px-6">
-        <p className="section-heading-number text-accent-blue-dark dark:text-accent-cyan">
+        <AnimatedSection className="section-heading-number text-accent-blue-dark dark:text-accent-cyan">
           04 · PROJECTS
-        </p>
+        </AnimatedSection>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <motion.div
+          variants={staggerListVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2"
+        >
           {projects.map((project, i) => (
             <motion.div
               key={project.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={staggerItemVariants}
               transition={{ delay: i * 0.08 }}
+              whileHover={{ y: -6, scale: 1.01, rotate: -0.3 }}
             >
               <Card className="group h-full transition-shadow hover:shadow-lg">
                 <CardHeader>
@@ -58,7 +64,7 @@ export function Projects() {
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

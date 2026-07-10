@@ -8,10 +8,11 @@ import { Education } from "@/components/Education";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
+import { PageTransition } from "@/components/ui/page-transition";
 
 export default function Home() {
   return (
-    <main>
+    <PageTransition>
       <Navbar />
       <Hero />
       <About />
@@ -22,6 +23,6 @@ export default function Home() {
       <Contact />
       <Footer />
       <BackToTop />
-    </main>
+    </PageTransition>
   );
 }

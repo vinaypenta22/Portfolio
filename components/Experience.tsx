@@ -3,25 +3,31 @@
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { experience } from "@/lib/data";
+import { AnimatedSection, staggerListVariants, staggerItemVariants } from "@/components/ui/animated-section";
 
 export function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl px-6 py-28">
-      <p className="section-heading-number text-accent-blue-dark dark:text-accent-cyan">
+      <AnimatedSection className="section-heading-number text-accent-blue-dark dark:text-accent-cyan">
         03 · EXPERIENCE
-      </p>
-      <h2 className="mt-2 font-display text-3xl font-semibold text-ink dark:text-white sm:text-4xl">
+      </AnimatedSection>
+      <AnimatedSection delay={0.08} y={16} className="mt-2 font-display text-3xl font-semibold text-ink dark:text-white sm:text-4xl">
         Where the work happened
-      </h2>
+      </AnimatedSection>
 
-      <div className="relative mt-14 border-l border-slate-200 pl-8 dark:border-slate-800">
+      <motion.div
+        variants={staggerListVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative mt-14 border-l border-slate-200 pl-8 dark:border-slate-800"
+      >
         {experience.map((job, i) => (
           <motion.div
             key={job.company}
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            variants={staggerItemVariants}
             transition={{ delay: i * 0.1 }}
+            whileHover={{ x: 6, scale: 1.01 }}
             className="relative pb-4"
           >
             <span className="absolute -left-[41px] flex h-8 w-8 items-center justify-center rounded-full border border-accent-blue/40 bg-white dark:border-accent-cyan/40 dark:bg-surface-dark-subtle">
@@ -49,7 +55,7 @@ export function Experience() {
             </ul>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

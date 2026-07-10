@@ -1,4 +1,7 @@
-import { Mail, Linkedin, Github } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { Mail, Linkedin } from "lucide-react";
 import { profile, navLinks } from "@/lib/data";
 
 export function Footer() {
@@ -17,33 +20,36 @@ export function Footer() {
 
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {navLinks.map((link) => (
-              <a
+              <motion.a
                 key={link.href}
                 href={link.href}
+                whileHover={{ y: -2, scale: 1.02 }}
                 className="font-mono text-xs uppercase tracking-wider text-slate-500 hover:text-ink dark:text-slate-400 dark:hover:text-white"
               >
                 {link.label}
-              </a>
+              </motion.a>
             ))}
           </nav>
 
           <div className="flex gap-3">
-            <a
+            <motion.a
               href={`mailto:${profile.email}`}
               aria-label="Email"
+              whileHover={{ y: -2, scale: 1.06, rotate: -4 }}
               className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:border-accent-blue hover:text-accent-blue-dark dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-cyan dark:hover:text-accent-cyan"
             >
               <Mail className="h-4 w-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
+              whileHover={{ y: -2, scale: 1.06, rotate: 4 }}
               className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:border-accent-blue hover:text-accent-blue-dark dark:border-slate-700 dark:text-slate-400 dark:hover:border-accent-cyan dark:hover:text-accent-cyan"
             >
               <Linkedin className="h-4 w-4" />
-            </a>
+            </motion.a>
           </div>
         </div>
       </div>

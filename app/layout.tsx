@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 import { profile } from "@/lib/data";
 
 const spaceGrotesk = Space_Grotesk({
@@ -61,7 +62,10 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <AnimatedBackground />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
